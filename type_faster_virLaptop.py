@@ -105,8 +105,7 @@ def read_keyboard(event):
     for tag in random_words_text.tag_names():
         random_words_text.tag_remove(tag, "1.0", tk.END)
 
-    # Bit of a problem: "apple" and "pineapple" both have apple turn green
-    # I can probably remove a word from the list if it has another word inside it
+    # Looping through the text to find which words to turn Green
     for word in user_input.split():
         if word in random_words:
             start_index = "1.0"
@@ -121,7 +120,6 @@ def read_keyboard(event):
     # Changing the correct word to green
     for word in random_words:
         random_words_text.tag_config(word, foreground="green")
-
 
     correct_words = []
     for word in user_input.split():
